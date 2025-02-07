@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 
-import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -11,16 +8,19 @@ import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { Open_Sans } from 'next/font/google'
 import { draftMode } from 'next/headers'
 
-import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import './globals.css'
+
+const openSans = Open_Sans({ subsets: ['hebrew'], display: 'swap' })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html className={openSans.className} lang="he" dir="rtl" suppressHydrationWarning>
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
