@@ -21,10 +21,10 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
 
   return (
     <div
-      className="relative -mt-[10.4rem] flex items-center justify-center text-white"
+      className="relative -mt-[10.4rem] flex items-center justify-center pt-16 text-white"
       data-theme="dark"
     >
-      <div className="container relative z-10 mb-8 flex items-center justify-center">
+      <div className="container relative top-6 z-10 flex items-center justify-center">
         <div className="max-w-[36.5rem] md:text-center">
           {richText && (
             <RichText className="mb-6" data={richText} enableGutter={false} />
@@ -42,7 +42,7 @@ export const HighImpactHero: React.FC<Page["hero"]> = ({
           )}
         </div>
       </div>
-      <div className="min-h-[80vh] select-none">
+      <div className="h-[80vh] select-none">
         {media && typeof media === "object" && (
           <Media
             fill

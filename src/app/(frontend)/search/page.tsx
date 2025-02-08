@@ -76,7 +76,7 @@ export default async function Page({
       {posts.totalDocs > 0 ? (
         <CollectionArchive posts={posts.docs as CardPostData[]} />
       ) : (
-        <div className="container text-center">לא נמצאו תוצאות.</div>
+        <div className="container text-center">לא נמצאו תוצאות</div>
       )}
     </div>
   );

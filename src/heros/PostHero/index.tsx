@@ -20,7 +20,7 @@ export const PostHero: React.FC<{
     <div className="relative -mt-[10.4rem] flex items-end">
       <div className="container relative z-10 pb-8 text-white lg:grid lg:grid-cols-[1fr_48rem_1fr]">
         <div className="col-span-1 col-start-1 md:col-span-2 md:col-start-2">
-          <div className="mb-6 text-sm uppercase">
+          <div className="mb-2 text-lg uppercase">
             {categories?.map((category, index) => {
               if (typeof category === "object" && category !== null) {
                 const { title: categoryTitle } = category;
@@ -40,10 +40,7 @@ export const PostHero: React.FC<{
             })}
           </div>
 
-          <div className="">
-            <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
-          </div>
-
+          <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
           <div className="flex flex-col gap-4 md:flex-row md:gap-16">
             {/* {hasAuthors && (
               <div className="flex flex-col gap-4">
@@ -66,7 +63,7 @@ export const PostHero: React.FC<{
           </div>
         </div>
       </div>
-      <div className="min-h-[80vh] select-none">
+      <div className="h-[80vh] select-none">
         {heroImage && typeof heroImage !== "string" && (
           <Media
             fill
