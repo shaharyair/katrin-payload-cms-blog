@@ -44,10 +44,10 @@ export const Card: React.FC<{
       )}
       ref={card.ref}
     >
-      <div className="relative w-full">
+      <div className="relative h-64 w-full overflow-hidden">
         {!metaImage && <div className="">No image</div>}
         {metaImage && typeof metaImage !== "string" && (
-          <Media resource={metaImage} size="33vw" />
+          <Media resource={metaImage} size="33vw" className="size-full" />
         )}
       </div>
       <div className="p-4">
