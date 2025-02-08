@@ -49,6 +49,7 @@ export const AdminBar: React.FC<{
 
   return (
     <div
+      style={{ direction: "ltr" }}
       className={cn(baseClass, "bg-black py-2 text-white", {
         block: show,
         hidden: !show,
