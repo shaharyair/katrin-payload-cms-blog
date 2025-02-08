@@ -30,7 +30,7 @@ export const MediumImpactHero: React.FC<Page["hero"]> = ({
           </ul>
         )}
       </div>
-      <div className="container ">
+      <div className="container">
         {media && typeof media === "object" && (
           <div>
             <Media
