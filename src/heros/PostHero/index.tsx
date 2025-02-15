@@ -41,8 +41,8 @@ export const PostHero: React.FC<{
           </div>
 
           <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
-          <div className="flex flex-col gap-4 md:flex-row md:gap-16">
-            {/* {hasAuthors && (
+          {/* <div className="flex flex-col gap-4 md:flex-row md:gap-16"> */}
+          {/* {hasAuthors && (
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
                   <p className="text-sm">Author</p>
@@ -51,16 +51,14 @@ export const PostHero: React.FC<{
                 </div>
               </div>
             )} */}
-            {publishedAt && (
-              <div className="flex items-center justify-center gap-1">
-                <p className="text-sm">פורסם בתאריך</p>
+          {publishedAt && (
+            <div className="flex items-center justify-start gap-1">
+              <p className="text-sm">פורסם בתאריך</p>
 
-                <time dateTime={publishedAt}>
-                  {formatDateTime(publishedAt)}
-                </time>
-              </div>
-            )}
-          </div>
+              <time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
+            </div>
+          )}
+          {/* </div> */}
         </div>
       </div>
       <div className="h-[80vh] select-none">
