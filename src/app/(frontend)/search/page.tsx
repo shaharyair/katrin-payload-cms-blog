@@ -65,7 +65,7 @@ export default async function Page({
       <PageClient />
       <div className="container mb-16">
         <div className="prose max-w-none text-center dark:prose-invert">
-          <h1 className="mb-8 lg:mb-16">חיפוש</h1>
+          <h1 className="mb-8 lg:mb-16">המתכונים של קאתרין</h1>
 
           <div className="mx-auto max-w-[50rem]">
             <Search />
@@ -82,8 +82,13 @@ export default async function Page({
   );
 }
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({
+  searchParams,
+}: Args): Promise<Metadata> {
+  const { q } = await searchParams;
   return {
-    title: `Payload Website Template Search`,
+    title: q
+      ? `המתכונים של קאתרין | חיפוש | ${q}`
+      : `המתכונים של קאתרין | חיפוש`,
   };
 }

@@ -47,7 +47,7 @@ export const PageRange: React.FC<{
   return (
     <div className={[className, "font-semibold"].filter(Boolean).join(" ")}>
       {(typeof totalDocs === "undefined" || totalDocs === 0) &&
-        "Search produced no results."}
+        "לא נמצאו תוצאות"}
       {typeof totalDocs !== "undefined" &&
         totalDocs > 0 &&
         `${indexStart}${indexStart > 0 ? ` - ${indexEnd}` : ""} מתוך ${totalDocs} תוצאות`}
