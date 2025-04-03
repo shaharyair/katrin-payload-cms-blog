@@ -19,7 +19,7 @@ export default async function Page({
   const payload = await getPayload({ config: configPromise });
 
   const posts = await payload.find({
-    collection: "search",
+    collection: "posts",
     depth: 1,
     limit: 12,
     select: {
@@ -51,6 +51,11 @@ export default async function Page({
               },
               {
                 slug: {
+                  like: query,
+                },
+              },
+              {
+                "categories.title": {
                   like: query,
                 },
               },
