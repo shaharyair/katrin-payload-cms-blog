@@ -88,9 +88,15 @@ export const HeaderNav: React.FC<{
               key={i}
               {...link}
               appearance="link"
-              className="flex w-full items-center justify-start py-1 text-xl text-white"
+              className="w-full items-center justify-start py-1 text-xl text-white"
             />
           ))}
+          <Link
+            href="/search"
+            className="w-full items-center justify-start rounded py-1 text-xl text-white"
+          >
+            חיפוש
+          </Link>
         </div>
       </nav>
     </div>
