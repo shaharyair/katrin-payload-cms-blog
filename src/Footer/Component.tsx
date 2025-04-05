@@ -13,7 +13,7 @@ export async function Footer() {
 
   return (
     <footer className="mt-auto border-t border-border bg-black/85 text-white backdrop-blur-lg">
-      <div className="container flex flex-col gap-8 pb-14 pt-8 md:flex-row md:justify-between lg:py-6">
+      <div className="container flex flex-col gap-8 pb-14 pt-8 md:flex-row lg:py-6">
         <Link className="flex items-center" href="/">
           <Logo />
         </Link>
