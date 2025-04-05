@@ -11,7 +11,6 @@ import { getServerSideURL } from "@/utilities/getURL";
 import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Open_Sans } from "next/font/google";
-import { draftMode } from "next/headers";
 import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["hebrew"], display: "swap" });
@@ -21,7 +20,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isEnabled } = await draftMode();
+  // const { isEnabled } = await draftMode();
 
   return (
     <html
@@ -39,9 +38,11 @@ export default async function RootLayout({
         <Providers>
           <SpeedInsights />
           <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
+            adminBarProps={
+              {
+                // preview: isEnabled,
+              }
+            }
           />
 
           <Header />

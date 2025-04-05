@@ -9,9 +9,7 @@ import { CallToAction } from "../../blocks/CallToAction/config";
 import { Content } from "../../blocks/Content/config";
 import { FormBlock } from "../../blocks/Form/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
-import { populatePublishedAt } from "../../hooks/populatePublishedAt";
 import { generatePreviewPath } from "../../utilities/generatePreviewPath";
-import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage";
 
 import {
   MetaDescriptionField,
@@ -122,18 +120,18 @@ export const Pages: CollectionConfig<"pages"> = {
     },
     ...slugField(),
   ],
-  hooks: {
-    afterChange: [revalidatePage],
-    beforeChange: [populatePublishedAt],
-    afterDelete: [revalidateDelete],
-  },
-  versions: {
-    drafts: {
-      autosave: {
-        interval: 100, // We set this interval for optimal live preview
-      },
-      schedulePublish: true,
-    },
-    maxPerDoc: 50,
-  },
+  // hooks: {
+  //   afterChange: [revalidatePage],
+  //   beforeChange: [populatePublishedAt],
+  //   afterDelete: [revalidateDelete],
+  // },
+  // versions: {
+  //   drafts: {
+  //     autosave: {
+  //       interval: 100, // We set this interval for optimal live preview
+  //     },
+  //     schedulePublish: true,
+  //   },
+  //   maxPerDoc: 50,
+  // },
 };

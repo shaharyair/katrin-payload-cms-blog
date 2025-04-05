@@ -4,11 +4,9 @@ import { RelatedPosts } from "@/blocks/RelatedPosts/Component";
 import { PayloadRedirects } from "@/components/PayloadRedirects";
 import RichText from "@/components/RichText";
 import configPromise from "@payload-config";
-import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import { cache } from "react";
 
-import { LivePreviewListener } from "@/components/LivePreviewListener";
 import { PostHero } from "@/heros/PostHero";
 import { generateMeta } from "@/utilities/generateMeta";
 import PageClient from "./page.client";
@@ -17,9 +15,9 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
   const posts = await payload.find({
     collection: "posts",
-    draft: false,
+    // draft: false,
     limit: 1000,
-    overrideAccess: false,
+    //  overrideAccess: false,
     pagination: false,
     select: {
       slug: true,
@@ -40,7 +38,7 @@ type Args = {
 };
 
 export default async function Post({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode();
+  // const { isEnabled: draft } = await draftMode();
   const { slug = "" } = await paramsPromise;
   const url = "/posts/" + slug;
   const post = await queryPostBySlug({ slug });
@@ -54,7 +52,7 @@ export default async function Post({ params: paramsPromise }: Args) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      {draft && <LivePreviewListener />}
+      {/* {draft && <LivePreviewListener />} */}
 
       <PostHero post={post} />
 
@@ -89,15 +87,15 @@ export async function generateMetadata({
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode();
+  // const { isEnabled: draft } = await draftMode();
 
   const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
     collection: "posts",
-    draft,
+    // draft,
     limit: 1,
-    overrideAccess: draft,
+    // overrideAccess: draft,
     pagination: false,
     where: {
       slug: {

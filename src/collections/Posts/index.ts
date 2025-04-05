@@ -13,8 +13,6 @@ import { Code } from "../../blocks/Code/config";
 import { HtmlBlock } from "../../blocks/HtmlBlock/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { generatePreviewPath } from "../../utilities/generatePreviewPath";
-import { populateAuthors } from "./hooks/populateAuthors";
-import { revalidateDelete, revalidatePost } from "./hooks/revalidatePost";
 
 import { slugField } from "@/fields/slug";
 import {
@@ -25,7 +23,7 @@ import {
   PreviewField,
 } from "@payloadcms/plugin-seo/fields";
 
-export const Recipes: CollectionConfig<"posts"> = {
+export const Posts: CollectionConfig<"posts"> = {
   slug: "posts",
   access: {
     create: authenticated,
@@ -217,18 +215,18 @@ export const Recipes: CollectionConfig<"posts"> = {
     },
     ...slugField(),
   ],
-  hooks: {
-    afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
-    afterDelete: [revalidateDelete],
-  },
-  versions: {
-    drafts: {
-      autosave: {
-        interval: 100, // We set this interval for optimal live preview
-      },
-      schedulePublish: true,
-    },
-    maxPerDoc: 50,
-  },
+  // hooks: {
+  //   afterChange: [revalidatePost],
+  //   afterRead: [populateAuthors],
+  //   afterDelete: [revalidateDelete],
+  // },
+  // versions: {
+  //   drafts: {
+  //     autosave: {
+  //       interval: 100, // We set this interval for optimal live preview
+  //     },
+  //     schedulePublish: true,
+  //   },
+  //   maxPerDoc: 50,
+  // },
 };

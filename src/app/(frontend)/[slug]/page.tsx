@@ -3,12 +3,10 @@ import type { Metadata } from "next";
 import { PayloadRedirects } from "@/components/PayloadRedirects";
 import { homeStatic } from "@/endpoints/seed/home-static";
 import configPromise from "@payload-config";
-import { draftMode } from "next/headers";
 import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
 import { cache } from "react";
 
 import { RenderBlocks } from "@/blocks/RenderBlocks";
-import { LivePreviewListener } from "@/components/LivePreviewListener";
 import { RenderHero } from "@/heros/RenderHero";
 import { generateMeta } from "@/utilities/generateMeta";
 import PageClient from "./page.client";
@@ -17,9 +15,9 @@ export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
   const pages = await payload.find({
     collection: "pages",
-    draft: false,
+    // draft: false,
     limit: 1000,
-    overrideAccess: false,
+    // overrideAccess: false,
     pagination: false,
     select: {
       slug: true,
@@ -44,7 +42,7 @@ type Args = {
 };
 
 export default async function Page({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode();
+  // const { isEnabled: draft } = await draftMode();
   const { slug = "home" } = await paramsPromise;
   const url = "/" + slug;
 
@@ -71,7 +69,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
 
-      {draft && <LivePreviewListener />}
+      {/* {draft && <LivePreviewListener />} */}
 
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
@@ -91,16 +89,16 @@ export async function generateMetadata({
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode();
+  // const { isEnabled: draft } = await draftMode();
 
   const payload = await getPayload({ config: configPromise });
 
   const result = await payload.find({
     collection: "pages",
-    draft,
+    // draft,
     limit: 1,
     pagination: false,
-    overrideAccess: draft,
+    // overrideAccess: draft,
     where: {
       slug: {
         equals: slug,
