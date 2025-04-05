@@ -1,31 +1,37 @@
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import {
   DefaultNodeTypes,
   SerializedBlockNode,
   SerializedLinkNode,
-} from '@payloadcms/richtext-lexical'
-import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+} from "@payloadcms/richtext-lexical";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import {
   JSXConvertersFunction,
   LinkJSXConverter,
   RichText as RichTextWithoutBlocks,
-} from '@payloadcms/richtext-lexical/react'
+} from "@payloadcms/richtext-lexical/react";
 
 import { CodeBlock, CodeBlockProps } from "@/blocks/Code/Component";
 
-import { BannerBlock } from '@/blocks/Banner/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import { BannerBlock } from "@/blocks/Banner/Component";
+import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
+  HtmlBlock as HtmlBlockProps,
   MediaBlock as MediaBlockProps,
-} from '@/payload-types'
-import { cn } from '@/utilities/ui'
+} from "@/payload-types";
+import { cn } from "@/utilities/ui";
+import { HtmlBlock } from "../../blocks/HtmlBlock/Component";
 
 type NodeTypes =
   | DefaultNodeTypes
   | SerializedBlockNode<
-      CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps
+      | CTABlockProps
+      | MediaBlockProps
+      | BannerBlockProps
+      | CodeBlockProps
+      | HtmlBlockProps
     >;
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
@@ -58,6 +64,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
     ),
     code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
+    htmlBlock: ({ node }) => <HtmlBlock {...node.fields} />,
   },
 });
 
