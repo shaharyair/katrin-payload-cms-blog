@@ -18,11 +18,11 @@ const getPagesSitemap = unstable_cache(
       depth: 0,
       limit: 1000,
       pagination: false,
-      where: {
-        _status: {
-          equals: "published",
-        },
-      },
+      // where: {
+      //   _status: {
+      //     equals: "published",
+      //   },
+      // },
       select: {
         slug: true,
         updatedAt: true,
