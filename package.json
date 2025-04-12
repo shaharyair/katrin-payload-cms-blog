@@ -19,6 +19,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.0",
     "@payloadcms/db-mongodb": "3.22.0",
     "@payloadcms/live-preview-react": "3.22.0",
     "@payloadcms/next": "3.22.0",

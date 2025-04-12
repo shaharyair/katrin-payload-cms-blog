@@ -9,6 +9,7 @@ import { Providers } from "@/providers";
 import { InitTheme } from "@/providers/Theme/InitTheme";
 import { getServerSideURL } from "@/utilities/getURL";
 import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Open_Sans } from "next/font/google";
 import { Userway } from "../../components/common/userway";
@@ -51,6 +52,7 @@ export default async function RootLayout({
           <Footer />
         </Providers>
         <Userway />
+        <GoogleAnalytics gaId="G-YRP46P1X8Q" />
       </body>
     </html>
   );
