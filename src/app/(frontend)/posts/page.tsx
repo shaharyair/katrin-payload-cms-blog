@@ -8,7 +8,7 @@ import { getPayload } from "payload";
 import PageClient from "./page.client";
 
 export const dynamic = "force-static";
-export const revalidate = 600;
+export const revalidate = 60;
 
 export default async function Page() {
   const payload = await getPayload({ config: configPromise });

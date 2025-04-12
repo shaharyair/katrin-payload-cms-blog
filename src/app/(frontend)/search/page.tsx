@@ -7,6 +7,8 @@ import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import PageClient from "./page.client";
 
+export const revalidate = 60;
+
 type Args = {
   searchParams: Promise<{
     q: string;
