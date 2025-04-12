@@ -11,6 +11,7 @@ import { getServerSideURL } from "@/utilities/getURL";
 import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Open_Sans } from "next/font/google";
+import { Userway } from "../../components/common/userway";
 import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["hebrew"], display: "swap" });
@@ -49,6 +50,7 @@ export default async function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Userway />
       </body>
     </html>
   );
