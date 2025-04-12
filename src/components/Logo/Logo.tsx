@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Image from "next/image";
 
 interface Props {
   className?: string;
@@ -17,18 +18,18 @@ export const Logo = (props: Props) => {
   const priority = priorityFromProps || "low";
 
   return (
-    // <img
-    //   alt="Payload Logo"
-    //   width={193}
-    //   height={34}
-    //   loading={loading}
-    //   fetchPriority={priority}
-    //   decoding="async"
-    //   className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
-    //   src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-logo-light.svg"
-    // />
-    <h1 className={clsx(className, "prose text-xl dark:prose-invert")}>
-      KATRIN
-    </h1>
+    <Image
+      alt="Payload Logo"
+      width={193}
+      height={34}
+      loading={loading}
+      fetchPriority={priority}
+      decoding="async"
+      className={clsx("w-[90px] object-contain dark:invert", className)}
+      src="/logo.webp"
+    />
+    // <h1 className={clsx(className, "prose text-xl dark:prose-invert")}>
+    //   KATRIN
+    // </h1>
   );
 };

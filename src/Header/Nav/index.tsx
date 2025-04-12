@@ -37,7 +37,7 @@ export const HeaderNav: React.FC<{
 
   return (
     <div className="container flex flex-row-reverse items-center justify-between py-3 md:flex-row md:py-5">
-      <Link href="/" className="ml-4 md:m-0">
+      <Link href="/" className="ml-2 md:m-0">
         <Logo loading="eager" priority="high" className="text-white" />
       </Link>
       {/* desktop nav */}
