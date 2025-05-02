@@ -12,6 +12,7 @@ import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Open_Sans } from "next/font/google";
+import Script from "next/script";
 import { Userway } from "../../components/common/userway";
 import "./globals.css";
 
@@ -35,6 +36,12 @@ export default async function RootLayout({
         <InitTheme />
         {/* <link href="/favicon.ico" rel="icon" sizes="32x32" /> */}
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <Script
+          src="https://ligheechoagool.com/88/tag.min.js"
+          data-zone="145463"
+          async
+          data-cfasync="false"
+        />
       </head>
       <body>
         <Providers>
