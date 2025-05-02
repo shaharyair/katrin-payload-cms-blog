@@ -61,11 +61,4 @@ export default async function RootLayout({
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
-  other: {
-    monetag: "3fb91e748d95923040e72085da9c5f24",
-  },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   creator: "@payloadcms",
-  // },
 };
